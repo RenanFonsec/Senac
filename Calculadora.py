@@ -1,6 +1,6 @@
 from tkinter import *
 
-# ==========================================================================================<Back-End>=============================================================================================
+# ==========================================================================================<Back-End>==================================================================================================================
 
 
 def entrada(valor):
@@ -31,21 +31,30 @@ def excluir():
         Resultado['text'] = str(resultado)
 
 
-# ==========================================================================================<Front-End>=============================================================================================
+# ==========================================================================================<Front-End>=================================================================================================================
 janela = Tk()
 janela.title('Calculadora')
 
 
 janela.grid_rowconfigure(0, weight=1)
+
 janela.grid_rowconfigure(1, weight=1)
+
 janela.grid_rowconfigure(2, weight=1)
+
 janela.grid_rowconfigure(3, weight=1)
+
 janela.grid_rowconfigure(4, weight=1)
+
 janela.grid_rowconfigure(5, weight=1)
 
+
 janela.grid_columnconfigure(0, weight=1)
+
 janela.grid_columnconfigure(1, weight=1)
+
 janela.grid_columnconfigure(2, weight=1)
+
 janela.grid_columnconfigure(3, weight=1)
 
 
@@ -53,8 +62,10 @@ janela.minsize(width=500, height=650)
 janela.maxsize(width=1920, height=1080)
 janela.config(background='#333436')
 
+
 Resultado = Label(janela, font='Arial 25',
                   background='#333436', foreground='#fff')
+
 
 botao1 = Button(janela, text='7', font='Arial 18', background='#fff',
                 command=lambda: entrada('7'))
@@ -101,26 +112,77 @@ bt10 = Button(janela, text=')', font='Arial 18',
 Resultado.grid(row=0, column=0, columnspan=5)
 
 botao1.grid(row=2, column=0, sticky=NSEW)
+
 botao2.grid(row=2, column=1, sticky=NSEW)
+
 botao3.grid(row=2, column=2, sticky=NSEW)
+
 botao4.grid(row=3, column=0, sticky=NSEW)
+
 botao5.grid(row=3, column=1, sticky=NSEW)
+
 botao6.grid(row=3, column=2, sticky=NSEW)
+
 botao7.grid(row=4, column=0, sticky=NSEW)
+
 botao8.grid(row=4, column=1, sticky=NSEW)
+
 botao9.grid(row=4, column=2, sticky=NSEW)
+
 botao10.grid(row=5, column=1, sticky=NSEW)
 
+
 bt1.grid(row=5, column=2, sticky=NSEW)
+
 bt2.grid(row=1, column=2, sticky=NSEW)
+
 bt3.grid(row=1, column=3, sticky=NSEW)
+
 bt4.grid(row=2, column=3, sticky=NSEW)
+
 bt5.grid(row=3, column=3, sticky=NSEW)
+
 bt6.grid(row=4, column=3, sticky=NSEW)
+
 bt7.grid(row=5, column=0, sticky=NSEW)
+
 bt8.grid(row=5, column=3, sticky=NSEW)
+
 bt9.grid(row=1, column=0, sticky=NSEW)
+
 bt10.grid(row=1, column=1, sticky=NSEW)
 
+
+janela.bind('1', lambda event: entrada('1'))
+
+janela.bind('2', lambda event: entrada('2'))
+
+janela.bind('3', lambda event: entrada('3'))
+
+janela.bind('4', lambda event: entrada('4'))
+
+janela.bind('5', lambda event: entrada('5'))
+
+janela.bind('6', lambda event: entrada('6'))
+
+janela.bind('7', lambda event: entrada('7'))
+
+janela.bind('8', lambda event: entrada('8'))
+
+janela.bind('9', lambda event: entrada('9'))
+
+janela.bind('/', lambda event: entrada('/'))
+
+janela.bind('+', lambda event: entrada('+'))
+
+janela.bind('-', lambda event: entrada('-'))
+
+janela.bind('*', lambda event: entrada('*'))
+
+janela.bind('(', lambda event: entrada('('))
+
+janela.bind(')', lambda event: entrada(')'))
+
+janela.bind('<Return>', lambda event: excluir())
 
 janela.mainloop()
