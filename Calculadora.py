@@ -35,7 +35,6 @@ def excluir():
 janela = Tk()
 janela.title('Calculadora')
 
-janela.config(padx=5, pady=5)
 
 janela.grid_rowconfigure(0, weight=1)
 janela.grid_rowconfigure(1, weight=1)
@@ -52,38 +51,39 @@ janela.grid_columnconfigure(3, weight=1)
 
 janela.minsize(width=500, height=650)
 janela.maxsize(width=1920, height=1080)
-janela.config(background='#d4d9d6')
+janela.config(background='#333436')
 
-Resultado = Label(janela, font='Arial 25', background='#d4d9d6')
+Resultado = Label(janela, font='Arial 25',
+                  background='#333436', foreground='#fff')
 
-botao1 = Button(janela, text='7', font='Arial 18',
+botao1 = Button(janela, text='7', font='Arial 18', background='#fff',
                 command=lambda: entrada('7'))
-botao2 = Button(janela, text='8', font='Arial 18',
+botao2 = Button(janela, text='8', font='Arial 18', background='#fff',
                 command=lambda: entrada('8'))
-botao3 = Button(janela, text='9', font='Arial 18',
+botao3 = Button(janela, text='9', font='Arial 18', background='#fff',
                 command=lambda: entrada('9'))
-botao4 = Button(janela, text='4', font='Arial 18',
+botao4 = Button(janela, text='4', font='Arial 18', background='#fff',
                 command=lambda: entrada('4'))
-botao5 = Button(janela, text='5', font='Arial 18',
+botao5 = Button(janela, text='5', font='Arial 18', background='#fff',
                 command=lambda: entrada('5'))
-botao6 = Button(janela, text='6', font='Arial 18',
+botao6 = Button(janela, text='6', font='Arial 18', background='#fff',
                 command=lambda: entrada('6'))
-botao7 = Button(janela, text='1', font='Arial 18',
+botao7 = Button(janela, text='1', font='Arial 18', background='#fff',
                 command=lambda: entrada('1'))
-botao8 = Button(janela, text='2', font='Arial 18',
+botao8 = Button(janela, text='2', font='Arial 18', background='#fff',
                 command=lambda: entrada('2'))
-botao9 = Button(janela, text='3', font='Arial 18',
+botao9 = Button(janela, text='3', font='Arial 18', background='#fff',
                 command=lambda: entrada('3'))
-botao10 = Button(janela, text='0', font='Arial 18',
+botao10 = Button(janela, text='0', font='Arial 18', background='#fff',
                  command=lambda: entrada('0'))
 
 bt1 = Button(janela, text='C', font='Arial 16',
-             background='#e6e1e1', command=lambda: limpar())
+             background='#bc544b', command=lambda: limpar())
 bt2 = Button(janela, text='←', font='Arial 18',
-             background='#e6e1e1', command=lambda: apagar())
+             background='#1b98e0', command=lambda: apagar())
 bt3 = Button(janela, text='÷', font='Arial 18',
              background='#e6e1e1', command=lambda: entrada('/'))
-bt4 = Button(janela, text='*', font='Arial 18',
+bt4 = Button(janela, text='⨉', font='Arial 18',
              background='#e6e1e1', command=lambda: entrada('*'))
 bt5 = Button(janela, text='-', font='Arial 18',
              background='#e6e1e1', command=lambda: entrada('-'))
