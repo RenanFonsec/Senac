@@ -171,6 +171,8 @@ janela.bind('8', lambda event: entrada('8'))
 
 janela.bind('9', lambda event: entrada('9'))
 
+janela.bind('0'), lambda event: entrada('0'))
+
 janela.bind('/', lambda event: entrada('/'))
 
 janela.bind('+', lambda event: entrada('+'))
