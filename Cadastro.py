@@ -3,20 +3,24 @@ from tkinter import *
 # =======================================================================================<Inicio>==================================================================================================
 janela = Tk()
 janela.title('Cadastro')
-janela.config(background='#3c3c3c')
+janela.config(background='#666666')
 
 # =======================================================================================<Frames>==================================================================================================
 fr1 = Frame(janela, background='#3c3c3c', width=100,
-            borderwidth=12, relief='sunken')
+            borderwidth=15, relief='sunken')
 
 fr2 = Frame(janela, background='#3c3c3c', width=100,
-            borderwidth=12, relief='sunken')
+            borderwidth=15, relief='sunken')
 
 fr3 = Frame(janela, background='#3c3c3c', width=100,
-            borderwidth=12, relief='sunken')
+            borderwidth=15, relief='sunken')
 
-login = Frame(janela, background='#3c3c3c', width=100,
+login = Frame(janela, background='#3c3c3c', width=70,
               borderwidth=12, relief='sunken')
+
+# ======================================================================================<MinsizeMaxsize>==========================================================================================
+janela.minsize(width=1033, height=365)
+janela.maxsize(width=1033, height=365)
 
 # =======================================================================================<RowConfigure>============================================================================================
 janela.grid_rowconfigure(0, weight=1)
@@ -99,7 +103,7 @@ Entry_Senha = Entry(login, font='Arial 15', width=25, show='*')
 # ======================================================================================<ButtonsFr1>===============================================================================================
 
 Bt1 = Button(fr3, text='Voltar', font='Arial 14', background='#666666', fg='#fff', width=10, padx=5,
-             command=lambda: [login.grid(sticky=NSEW), fr1.grid_forget(), fr2.grid_forget(), fr3.grid_forget()])
+             command=lambda: [login.grid(row=0, column=3, columnspan=2), fr1.grid_forget(), fr2.grid_forget(), fr3.grid_forget()])
 Bt2 = Button(fr3, text='Sair', font='Arial 14', background='#666666',
              fg='#fff', width=5, padx=5, command=quit)
 
@@ -144,13 +148,13 @@ Entry_Cidade.grid(row=2, column=3, sticky=EW, columnspan=2)
 
 # =======================================================================================<LabelLogin>==============================================================================================
 
-Login.grid(row=0, column=0, columnspan=1, sticky=EW)
-Senha.grid(row=1, column=0, columnspan=1, sticky=EW)
+Login.grid(row=0, column=0, columnspan=1, sticky=NSEW)
+Senha.grid(row=1, column=0, columnspan=1, sticky=NSEW)
 
 # =======================================================================================<EntryLogin>==============================================================================================
 
-Entry_Login.grid(row=0, column=1, columnspan=2, sticky=EW)
-Entry_Senha.grid(row=1, column=1, columnspan=2, sticky=EW)
+Entry_Login.grid(row=0, column=1, columnspan=2, sticky=NSEW)
+Entry_Senha.grid(row=1, column=1, columnspan=2, sticky=NSEW)
 
 # =======================================================================================<BotõesFr1>===============================================================================================
 
@@ -159,10 +163,10 @@ Bt2.grid(row=0, column=1)
 
 # =======================================================================================<BotõesLogin>=============================================================================================
 
-Bt_voltar.grid(row=2, column=1)
-Bt_Entrar.grid(row=2, column=2)
+Bt_voltar.grid(row=2, column=1, sticky=NSEW)
+Bt_Entrar.grid(row=2, column=2, sticky=NSEW)
 
 # ==================================================================================<Inicializador>================================================================================================
 
-login.grid(sticky=NSEW)
+login.grid(row=0, column=3, columnspan=2)
 janela.mainloop()
