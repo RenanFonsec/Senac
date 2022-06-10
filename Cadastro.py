@@ -1,5 +1,40 @@
 from tkinter import *
 
+def tel(event = None):
+    tel = Entry_Telefone.get().replace('-', '').replace('(', '').replace(')', '').replace(' ','')[:12]
+    novo_texto = ''
+
+    if event.keysym.lower() == 'Backspace': return
+
+    for content in range(len(tel)):
+
+        if tel[content] in '0123456789':
+            if content == 0: novo_texto += '(' + tel[content]
+            elif content == 2: novo_texto += tel[content] + ')'
+            elif content in [2, 3]: novo_texto += tel[content] + ' '
+            elif content == 7: novo_texto += tel[content] + '-'
+            else: novo_texto += tel[content]
+    
+    Entry_Telefone.delete(0, 'end')
+    Entry_Telefone.insert(0, novo_texto)
+
+def test(event = None):
+
+    text = Entry_CPF.get().replace('.', '').replace('-','')[:11]
+    new_text = ''
+
+    if event.keysym.lower() == 'Backspace': return
+
+    for contador in range(len(text)):
+
+        if text[contador] in '0123456789': 
+            if contador in [2,5]: new_text += text[contador] + '.'
+            elif contador == 8: new_text += text[contador] + '-'
+            else: new_text += text[contador]
+
+    Entry_CPF.delete(0, 'end')
+    Entry_CPF.insert(0, new_text)
+    
 # =======================================================================================<Inicio>==================================================================================================
 janela = Tk()
 janela.title('Cadastro')
@@ -19,8 +54,6 @@ login = Frame(janela, background='#3c3c3c', width=70,
               borderwidth=12, relief='sunken')
 
 # ======================================================================================<MinsizeMaxsize>==========================================================================================
-janela.minsize(width=1033, height=365)
-janela.maxsize(width=1033, height=365)
 
 # =======================================================================================<RowConfigure>============================================================================================
 janela.grid_rowconfigure(0, weight=1)
@@ -57,6 +90,8 @@ CPF = Label(fr1, text='CPF:', font='Arial 16',
             background='#3c3c3c', fg='#fff', anchor=E, padx=10,)
 Telefone = Label(fr1, text='Telefone:', font='Arial 16',
                  background='#3c3c3c', fg='#fff', anchor=E, padx=10)
+Sexo = Label(fr1,text='Sexo:',font='Arial 16',
+                background='#3c3c3c', fg='#fff', anchor=E, padx=10, pady=3)
 
 # =======================================================================================<LabelFr2>================================================================================================
 
@@ -85,7 +120,9 @@ Senha = Label(login, text='Senha:', font='Arial 16',
 Entry_Nome = Entry(fr1, font='Arial 15', width=60)
 Entry_DataNasc = Entry(fr1, font='Arial 15', width=15)
 Entry_CPF = Entry(fr1, font='Arial 15', width=30)
+Entry_CPF.bind('<KeyRelease>', test)
 Entry_Telefone = Entry(fr1, font='Arial 15', width=15)
+Entry_Telefone.bind('<KeyRelease>', tel)
 
 # ======================================================================================<EntryFr2>=================================================================================================
 
@@ -106,6 +143,9 @@ Bt1 = Button(fr3, text='Voltar', font='Arial 14', background='#666666', fg='#fff
              command=lambda: [login.grid(row=0, column=3, columnspan=2), fr1.grid_forget(), fr2.grid_forget(), fr3.grid_forget()])
 Bt2 = Button(fr3, text='Sair', font='Arial 14', background='#666666',
              fg='#fff', width=5, padx=5, command=quit)
+Bt3 = Checkbutton(fr1,text='Feminino',font='Arial 14',background='#3c3c3c', fg='#fff', padx=5, pady=5)
+
+Bt4 = Checkbutton(fr1,text='Masculino',font='Arial 14',background='#3c3c3c', fg='#fff', padx=5, pady=5)
 
 # ======================================================================================<ButtonsLogin>=============================================================================================
 
@@ -121,6 +161,7 @@ Nome.grid(row=1, column=0, sticky=EW)
 DataNasc.grid(row=2, column=5, sticky=EW)
 CPF.grid(row=2, column=0, sticky=EW)
 Telefone.grid(row=2, column=3, sticky=EW)
+Sexo.grid(row=3,column=0)
 
 # =======================================================================================<LabelFr2>================================================================================================
 
@@ -160,6 +201,8 @@ Entry_Senha.grid(row=1, column=1, columnspan=2, sticky=NSEW)
 
 Bt1.grid(row=0, column=0)
 Bt2.grid(row=0, column=1)
+Bt3.grid(row=3,column=1)
+Bt4.grid(row=3,column=2)
 
 # =======================================================================================<BotõesLogin>=============================================================================================
 
