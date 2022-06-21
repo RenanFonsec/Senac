@@ -4,6 +4,8 @@ import ajuda
 
 # ================================== back-end ==================================
 
+
+
 janela = Tk()
 janela.title('Lockbank')
 janela.geometry('465x760')
@@ -214,6 +216,8 @@ tela_saque = Frame(janela)
 
 AbaSaque = Label(tela_saque, image=Imagemsaque)
 
+entryValor2 = Label(tela_saque, bg='#fff', font='Verdana 16', text='R$', bd=0)
+
 Bt_cinco = Button(tela_saque, bd=0, image=CincoImg)
 
 Bt_dez = Button(tela_saque, bd=0, image=DezImg)
@@ -230,6 +234,8 @@ Bt_sacar = Button(tela_saque, bd=0, image=SacarImg)
 
 Bt_voltar = Button(tela_saque, bd=0, image=VoltarImg, command=lambda: [
                    tela_saldo.pack(), tela_saque.pack_forget()])
+
+entryValor2.place(width=167, height=25, x=152, y=465)
 
 entryValor = Entry(tela_saque)
 
@@ -273,6 +279,8 @@ tela_deposito = Frame(janela)
 
 AbaDeposito = Label(tela_deposito, image=Imagemdeposito)
 
+entryValor2 = Label(tela_deposito, bg='#fff', font='Verdana 16', text='R$', bd=0)
+
 Bt_cinco = Button(tela_deposito, bd=0, image=CincoImg)
 
 Bt_dez = Button(tela_deposito, bd=0, image=DezImg)
@@ -292,6 +300,8 @@ Bt_voltar = Button(tela_deposito, bd=0, image=VoltarImg, command=lambda: [
 
 
 entryValor = Entry(tela_deposito)
+
+entryValor2.place(width=167, height=25, x=152, y=465)
 
 Bt_cinco.place(width=135, height=76, x=13, y=251)
 
@@ -325,9 +335,9 @@ Bt_voltar = Button(tela_transferencia, bd=0, image=VoltarImg, command=lambda: [
                    tela_saldo.pack(), tela_transferencia.pack_forget()])
 
 entryTipos_Conta = Entry(tela_transferencia, font='Verdana 16', fg='#2d2e3d')
-entryAgencia = Entry(tela_transferencia, font='Verdana 16', fg='#666666')
-entryConta = Entry(tela_transferencia, font='Verdana 16', fg='#666666')
-entryTransferencia = Entry(tela_transferencia, font='Verdana 16', fg='#666666')
+entryAgencia = Entry(tela_transferencia, font='Verdana 16', fg='#2d2e3d')
+entryConta = Entry(tela_transferencia, font='Verdana 16', fg='#2d2e3d')
+entryTransferencia = Entry(tela_transferencia, font='Verdana 16', fg='#2d2e3d')
 
 Bt_transferir.place(width=190, height=31, x=145, y=697)
 Bt_voltar.place(width=50, height=40, x=21, y=27)
